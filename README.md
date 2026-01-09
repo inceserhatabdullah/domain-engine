@@ -2,6 +2,7 @@
 Domain-engine is a domain-aware AI systems framework for building semantic ingestion, chunking, embedding, and reasoning pipelines over long and complex documents.
 
 ## Folder Structure
+```
 domain-engine/
 ├── README.md
 ├── pyproject.toml
@@ -44,3 +45,4 @@ domain-engine/
 │
 └── experiments/
     └── notebooks/
+```
