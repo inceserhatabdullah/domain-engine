@@ -6,12 +6,12 @@ import uuid
 
 class IngestService:
 
-    def __init__(self) -> None:
-        self.directory = "data/uploads"
+    def __init__(self, directory = "data/uploads") -> None:
+        self.directory=directory
+        self.file_service = FileService(self.directory)
         pass
 
     async def ingest(self, file: UploadFile) -> File:
-        self.__init__file__service(FileService(self.directory))
 
         file_id = str(uuid.uuid4())
         relative_path = f"{self.directory}/{file_id}"
@@ -25,6 +25,3 @@ class IngestService:
             path=relative_path,
             content_type=str(file.content_type),
         )
-
-    def __init__file__service(self, file_service: FileService):
-        self.file_service = file_service
