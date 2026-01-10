@@ -2,7 +2,7 @@ from pathlib import Path
 from fastapi import UploadFile
 
 
-class FileService:
+class StorageService:
 
     def __init__(self, directory: str) -> None:
         self.directory = directory
@@ -15,12 +15,3 @@ class FileService:
                 if not chunk:
                     break
                 buffer.write(chunk)
-
-
-""" 
-  def exists(self, path: str) -> bool:
-    return (self.base_dir, path).exists()
-  
-  def stat(self, path: str):
-    return (self.base_dir, path).stat()
-"""

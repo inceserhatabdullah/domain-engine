@@ -1,5 +1,5 @@
 from fastapi import APIRouter, UploadFile, File
-from services.ingest_service import IngestService
+from app.services.ingest import IngestService
 
 router = APIRouter()
 
