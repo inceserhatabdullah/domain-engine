@@ -1,9 +1,11 @@
 from dataclasses import dataclass
+from typing import Iterable
+from app.models.base import BaseModel
 
-@dataclass
-class Document:
-  id: str
-  size: int | None
-  path: str
-  content_type: str
-  original_name: str
+
+@dataclass(kw_only=True)
+class Document(BaseModel):
+    id: str
+    file_id: str
+    pages: Iterable[str]
+    parser: str
