@@ -1,6 +1,6 @@
 from fastapi import UploadFile
 from app.services.storage import StorageService
-from app.models.document import Document
+from app.models.file import File
 from app.const.default import ingest_document_upload_directory
 import uuid
 
@@ -12,14 +12,14 @@ class IngestService:
         self.file_service = StorageService(self.directory)
         pass
 
-    async def ingest(self, file: UploadFile) -> Document:
+    async def ingest(self, file: UploadFile) -> File:
 
         file_id = str(uuid.uuid4())
         relative_path = f"{self.directory}/{file_id}"
 
         await self.file_service.upload(file, relative_path)
 
-        return Document(
+        return File(
             id=file_id,
             size=file.size,
             original_name=str(file.filename),
